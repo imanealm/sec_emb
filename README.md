@@ -70,11 +70,18 @@ En analysant les différentes instructions, on déduit que l'exécutable binaire
 -------------- Breaking the Program --------------
 
 Maintenant nous allons chercher à modifier le programme pour qu'il pense que tout mot de passe est correct.
-Nous devons modifier le fichier programme lui-même en trouvant et en modifiant ces nombres hexadécimaux quelque part dans le fichier.
+Nous devons modifier le fichier programme en trouvant et en modifiant ces nombres hexadécimaux quelque part dans le fichier.
+Pour arriver à retourner tout le temps 1, il faut modifier le code assembleur pour qu’il mette toujours la valeur 1 dans le registre correspondant.
 
 ![image](https://user-images.githubusercontent.com/46088690/152656790-2027192d-313b-4a34-88c3-04d4d7edc813.png)
 
-L'instruction qui nous intéresse est à "000007f0", donc il doit y avoir 2032 octets dans le fichier. Nous n'avons besoin de changer que le sixième octet de l'instruction, donc 2038203720 octets.
+Le code correspondant au retour de la valeur 1 est : b8 01 00 00 00
+L'instruction qui nous intéresse donc est à "000007f0", nous n'avons besoin de changer que le sixième octet de l'instruction, correspondant à 2038 octets.
 
 ![image](https://user-images.githubusercontent.com/46088690/152657136-89077313-a4f7-4ad2-b491-b58bb765eec0.png)
 
+On écrit dans le fichier programme en changent un octet et sans tronquer le reste du fichier.
+
+![image](https://user-images.githubusercontent.com/46088690/152657207-03ec24d7-36b7-4e0a-965a-c96a4b3c8354.png)
+
+On arrive à accepter tous les mots de pass.

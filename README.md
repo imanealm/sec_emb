@@ -59,7 +59,7 @@ On retrouve le mot de pass en clair ainsi que les fonctions printf, strcmp, et i
 
 Ce processus est appelé "désassemblage" au lieu de "décompilation" car nous ne pouvons pas récupérer le code source d'origine ; à la place, nous pouvons récupérer les noms des instructions encodées en code machine.
 
-exécutant gobjdump -S -l -C -F -t -w program | less pour obtenir le démontage:
+exécutant objdump -S -l -C -F -t -w program | less pour obtenir le démontage:
 
 ![image](https://user-images.githubusercontent.com/46088690/152651876-9c5fbe2a-0355-4602-986c-6422dd66ca8f.png)
 

@@ -1,7 +1,7 @@
 # sec_emb
-Ensuite, je compilerais le programme sous forme binaire (la manière dont la plupart des programmes sont distribués) et tenterais de modifier le programme compilé1 pour accepter n'importe quel mot de passe.
+Ensuite, je compilerais le programme sous forme binaire (la manière dont la plupart des programmes sont distribués) et tenterais de modifier le programme compilé pour accepter n'importe quel mot de passe.
 
-Ici, nous voyons un fichier binaire et un fichier C.
+-------------- Building a Program --------------
 
 En regardant le fichier C, le code est :
 ```C
@@ -35,7 +35,15 @@ int main()
 }
 ```
 Le programme accepte un mot de passe et indique si le mot de passe est correct ou non.
-
+Résultat de compilation:
 ![image](https://user-images.githubusercontent.com/46088690/152648812-9f2ec91d-695d-4339-8be4-bc430f1a0b71.png)
+
+-------------- A Deeper Look --------------
+
+En utilisant hexdump, nous pouvons voir les informations binaires brutes contenues dans le fichier program:
+![image](https://user-images.githubusercontent.com/46088690/152648969-96f37144-769b-4ac4-8101-1709cdcce2e5.png)
+
+-------------- Disassembling the Program --------------
+
 
 

@@ -1,9 +1,8 @@
 # sec_emb
-Ensuite, je compilerais le programme sous forme binaire (la manière dont la plupart des programmes sont distribués) et tenterais de modifier le programme compilé pour accepter n'importe quel mot de passe.
+Nous allons compiler le programme sous forme binaire et tenter de modifier le programme compilé pour accepter n'importe quel mot de passe.
 
 -------------- Building a Program --------------
-
-En regardant le fichier C, le code est :
+ Le code C pour la vérification des mots de pass est :
 ```C
 
 #include <stdio.h>
@@ -36,11 +35,13 @@ int main()
 ```
 Le programme accepte un mot de passe et indique si le mot de passe est correct ou non.
 Résultat de compilation:
+
 ![image](https://user-images.githubusercontent.com/46088690/152654101-599679b0-bd34-41be-90c9-99594ed2a21d.png)
 
 -------------- A Deeper Look --------------
 
 En utilisant hexdump, nous pouvons voir les informations binaires brutes contenues dans le fichier program:
+
 ![image](https://user-images.githubusercontent.com/46088690/152648969-96f37144-769b-4ac4-8101-1709cdcce2e5.png)
 
 La colonne de gauche est l'offset en hexadécimal et les deux colonnes du milieu sont le contenu réel du fichier lui-même en hexadécimal. La colonne de droite affiche un équivalent ASCII pour le contenu du fichier, si possible.
@@ -85,3 +86,19 @@ On écrit dans le fichier programme en changent un octet et sans tronquer le res
 ![image](https://user-images.githubusercontent.com/46088690/152657207-03ec24d7-36b7-4e0a-965a-c96a4b3c8354.png)
 
 On arrive à accepter tous les mots de pass.
+
+Questions:
+Quelle différence dans un environnement ARM?
+ARM a une architecture RISK la où x86 est une architecture CISC ce qui lui permet d’avoir plus d’instructions. Les instructions diffèrent donc entre les deux environnement.
+
+Comprendre le lien les attaques physiques / expliquez quelles sont les attaques par patching possibles sur une boucle for.
+Une boucle for fait appel à des jumps qu’on pourrait utiliser pour modifier l’adresse de saut
+et orienter notre programme vers d’autres portions.
+
+Qu'elle défense est ce que je peux utiliser contre le patching?
+Bien que la technique de patching soit quasi-impossible à éviter, il est possible en premier
+temps de la rendre difficile en passant par un processus d’obfuscation rendant le
+désassemblage difficile (par exemple mettre plusieurs jumps “factices” pour désorienter
+l’attaquant). On peut également calculer un checksum du code et vérifier si le hash a été
+modifié ce qui pourrait indiquer des breakpoints ou une tentative de débogage.
+

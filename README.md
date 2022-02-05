@@ -11,7 +11,7 @@ En regardant le fichier C, le code est :
 #include <string.h>
 int is_valid(const char* password)
 {
-    if (strcmp(password, "pw") == 0) {
+    if (strcmp(password, "pass") == 0) {
         return 1;
     } else {
         return 0;
@@ -36,7 +36,7 @@ int main()
 ```
 Le programme accepte un mot de passe et indique si le mot de passe est correct ou non.
 Résultat de compilation:
-![image](https://user-images.githubusercontent.com/46088690/152648812-9f2ec91d-695d-4339-8be4-bc430f1a0b71.png)
+![image](https://user-images.githubusercontent.com/46088690/152654101-599679b0-bd34-41be-90c9-99594ed2a21d.png)
 
 -------------- A Deeper Look --------------
 
@@ -49,11 +49,11 @@ Pour savoir quels morceaux de texte sont intégrés dans le fichier, nous utilis
 
 ![image](https://user-images.githubusercontent.com/46088690/152652008-8d860a98-cb7e-4df3-9975-c7357e0f52ce.png)
 
-![image](https://user-images.githubusercontent.com/46088690/152651945-2548a261-2efb-419f-8b90-d06b879afbb4.png)
+![image](https://user-images.githubusercontent.com/46088690/152653922-fc281b57-d626-4149-974e-1e5dcaea3a7d.png)
 
 ![image](https://user-images.githubusercontent.com/46088690/152651639-06ea407c-0e16-46e1-9c1c-1a9e3aa8444c.png)
 
-On retrouve les fonctions printf, strcmp, et is_valid
+On retrouve le mot de pass en clair ainsi que les fonctions printf, strcmp, et is_valid.
 
 -------------- Disassembling the Program --------------
 

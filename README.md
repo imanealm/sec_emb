@@ -65,3 +65,10 @@ exécutant gobjdump -S -l -C -F -t -w program | less pour obtenir le démontage:
 
 La colonne la plus à gauche contient les offsets. La colonne suivante est les instructions binaires elles-mêmes en hexadécimal. Après cela sont les noms et les paramètres de chaque instruction.
 
+En analysant les différentes instructions, on déduit que l'exécutable binaire a une fonction appelée is_valid, et cette fonction appelle strcmp avec certaines valeurs et renvoie un 1 ou un 0 en fonction de sa valeur de retour. 
+
+-------------- Breaking the Program --------------
+
+Maintenant nous allons chercher à modifier le programme pour qu'il pense que tout mot de passe est correct.
+Nous devons modifier le fichier programme lui-même en trouvant et en modifiant ces nombres hexadécimaux quelque part dans le fichier.
+

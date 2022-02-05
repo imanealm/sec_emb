@@ -42,6 +42,10 @@ Résultat de compilation:
 
 En utilisant hexdump, nous pouvons voir les informations binaires brutes contenues dans le fichier program:
 ![image](https://user-images.githubusercontent.com/46088690/152648969-96f37144-769b-4ac4-8101-1709cdcce2e5.png)
+La colonne de gauche est l'offset en hexadécimal et les deux colonnes du milieu sont le contenu réel du fichier lui-même en hexadécimal. La colonne de droite affiche un équivalent ASCII pour le contenu du fichier, si possible.
+
+Pour savoir quels morceaux de texte sont intégrés dans le fichier, nous utilisons le programme string:
+![image](https://user-images.githubusercontent.com/46088690/152651639-06ea407c-0e16-46e1-9c1c-1a9e3aa8444c.png)
 
 -------------- Disassembling the Program --------------
 

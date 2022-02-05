@@ -72,3 +72,4 @@ En analysant les différentes instructions, on déduit que l'exécutable binaire
 Maintenant nous allons chercher à modifier le programme pour qu'il pense que tout mot de passe est correct.
 Nous devons modifier le fichier programme lui-même en trouvant et en modifiant ces nombres hexadécimaux quelque part dans le fichier.
 
+![image](https://user-images.githubusercontent.com/46088690/152655785-35a1dea8-e707-46cb-9548-ff479f967e79.png)

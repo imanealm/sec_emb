@@ -47,9 +47,13 @@ La colonne de gauche est l'offset en hexadécimal et les deux colonnes du milieu
 
 Pour savoir quels morceaux de texte sont intégrés dans le fichier, nous utilisons la commande string:
 
+![image](https://user-images.githubusercontent.com/46088690/152652008-8d860a98-cb7e-4df3-9975-c7357e0f52ce.png)
+
 ![image](https://user-images.githubusercontent.com/46088690/152651945-2548a261-2efb-419f-8b90-d06b879afbb4.png)
 
 ![image](https://user-images.githubusercontent.com/46088690/152651639-06ea407c-0e16-46e1-9c1c-1a9e3aa8444c.png)
+
+On retrouve les fonctions printf, strcmp, et is_valid
 
 -------------- Disassembling the Program --------------
 

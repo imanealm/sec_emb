@@ -1,7 +1,11 @@
 # sec_emb
+Reverse Engineering 
+--------------
+
 Nous allons compiler le programme sous forme binaire et tenter de modifier le programme compilé pour accepter n'importe quel mot de passe.
 
--------------- Building a Program --------------
+Building a Program
+-------------- 
  Le code C pour la vérification des mots de pass est :
 ```C
 
@@ -38,7 +42,8 @@ Résultat de compilation:
 
 ![image](https://user-images.githubusercontent.com/46088690/152654101-599679b0-bd34-41be-90c9-99594ed2a21d.png)
 
--------------- A Deeper Look --------------
+A Deeper Look
+--------------
 
 En utilisant hexdump, nous pouvons voir les informations binaires brutes contenues dans le fichier program:
 
@@ -56,7 +61,8 @@ Pour savoir quels morceaux de texte sont intégrés dans le fichier, nous utilis
 
 On retrouve le mot de pass en clair ainsi que les fonctions printf, strcmp, et is_valid.
 
--------------- Disassembling the Program --------------
+Disassembling the Program
+-------------- 
 
 Ce processus est appelé "désassemblage" au lieu de "décompilation" car nous ne pouvons pas récupérer le code source d'origine ; à la place, nous pouvons récupérer les noms des instructions encodées en code machine.
 
@@ -68,7 +74,8 @@ La colonne la plus à gauche contient les offsets. La colonne suivante est les i
 
 En analysant les différentes instructions, on déduit que l'exécutable binaire a une fonction appelée is_valid, et cette fonction appelle strcmp avec certaines valeurs et renvoie un 1 ou un 0 en fonction de sa valeur de retour. 
 
--------------- Breaking the Program --------------
+Breaking the Program
+-------------- 
 
 Maintenant nous allons chercher à modifier le programme pour qu'il pense que tout mot de passe est correct.
 Nous devons modifier le fichier programme en trouvant et en modifiant ces nombres hexadécimaux quelque part dans le fichier.
@@ -88,17 +95,14 @@ On écrit dans le fichier programme en changent un octet et sans tronquer le res
 On arrive à accepter tous les mots de pass.
 
 Questions:
+-------------- 
 Quelle différence dans un environnement ARM?
 ARM a une architecture RISK la où x86 est une architecture CISC ce qui lui permet d’avoir plus d’instructions. Les instructions diffèrent donc entre les deux environnement.
 
 Comprendre le lien les attaques physiques / expliquez quelles sont les attaques par patching possibles sur une boucle for.
-Une boucle for fait appel à des jumps qu’on pourrait utiliser pour modifier l’adresse de saut
-et orienter notre programme vers d’autres portions.
+Une boucle for fait appel à des jumps qu’on pourrait utiliser pour modifier l’adresse de saut et orienter notre programme vers d’autres portions.
 
 Qu'elle défense est ce que je peux utiliser contre le patching?
-Bien que la technique de patching soit quasi-impossible à éviter, il est possible en premier
-temps de la rendre difficile en passant par un processus d’obfuscation rendant le
-désassemblage difficile (par exemple mettre plusieurs jumps “factices” pour désorienter
-l’attaquant). On peut également calculer un checksum du code et vérifier si le hash a été
-modifié ce qui pourrait indiquer des breakpoints ou une tentative de débogage.
+Bien que la technique de patching soit quasi-impossible à éviter, il est possible en premier temps de la rendre difficile en passant par un processus d’obfuscation rendant le désassemblage difficile (par exemple mettre plusieurs jumps “factices” pour désorienter l’attaquant). On peut également calculer un checksum du code et vérifier si le hash a été
+modifié ce qui pourrait indiquer des breakpoints ou une tentative de débogage. 
 

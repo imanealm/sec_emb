@@ -100,12 +100,10 @@ Quelle différence dans un environnement ARM?
 
 ARM a une architecture Reduced Instruction Set Computing RISC, cela signifie que le CPU a un nombre limité d'instructions qu'il peut utiliser. De ce fait, chaque instruction s'exécute en un seul cycle et les instructions sont plus simples, alors que x86 est une architecture CISC, qui signifie Complex Instruction Set Computing, il a beaucoup plus d'instructions. Les instructions entre les deux environnement sont différentes.
 
-Comprendre le lien les attaques physiques / expliquez quelles sont les attaques par patching possibles sur une boucle for?
+Quelles sont les attaques par patching possibles sur une boucle for?
 
-Une boucle for fait appel à des jumps qu’on pourrait utiliser pour modifier l’adresse de saut et orienter notre programme vers d’autres portions.
+On peut utiliser l'instruction jmp pour sauter à l'instruction qui nous intéresse en modifiant l'adresse du saut et contourner la vérification de la condition.
 
 Qu'elle défense est ce que je peux utiliser contre le patching?
 
-Bien que la technique de patching soit quasi-impossible à éviter, il est possible en premier temps de la rendre difficile en passant par un processus d’obfuscation rendant le désassemblage difficile (par exemple mettre plusieurs jumps “factices” pour désorienter l’attaquant). On peut également calculer un checksum du code et vérifier si le hash a été
-modifié ce qui pourrait indiquer des breakpoints ou une tentative de débogage. 
-
+On ne peut pas empêcher le patch mais on peut le rendre difficile en ajoutant des couches d'obscurcissement au code pour rendre le désassemblage compliquée à comprendre, en incorporant le fichier entier dans un autre fichier, en chiffrant le fichier d'origine, et en ne le déchiffrant et en le chargeant qu'au moment de l'exécution, ou effectuer une vérification de la somme de contrôle de celui-ci aux deux extrémités, avant de déchiffrer le fichier et après avoir déchiffré le fichier lors de l'exécution.

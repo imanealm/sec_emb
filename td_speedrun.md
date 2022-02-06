@@ -13,3 +13,15 @@ Démarrage du conteneur:
 
 The Speedrun
 --------------
+
+Nous recevons le message.
+![image](https://user-images.githubusercontent.com/46088690/152688868-4240f7f9-c2da-46e2-8d94-8ebd1378c2e5.png)
+
+J'ai attaché gdb à l'exécutable, et cette fois nous pouvons essayer une entrée avec beaucoup d'AAAAA..., Nous avons un défaut de segmentation ; en effet, il s'agissait d'un simple débordement de buffer.
+
+![image](https://user-images.githubusercontent.com/46088690/152689506-fe04445f-715f-4ebd-9d76-cb255170eea3.png)
+![image](https://user-images.githubusercontent.com/46088690/152689417-d1727c8a-5061-416a-9ff8-e7b251f53dc9.png)
+
+ Au lieu d'utiliser une génération de motif et de vérifier le décalage, j'ai simplement essayé de le faire à la main ;
+ 
+ Maintenant que nous avons trouvé le buffer overflow nous devons trouver le décalage où nous contrôlons le pointeur de retour sur la pile, 

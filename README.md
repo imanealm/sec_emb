@@ -97,12 +97,15 @@ On arrive à accepter tous les mots de pass.
 Questions:
 -------------- 
 Quelle différence dans un environnement ARM?
+
 ARM a une architecture Reduced Instruction Set Computing RISC, cela signifie que le CPU a un nombre limité d'instructions qu'il peut utiliser. De ce fait, chaque instruction s'exécute en un seul cycle et les instructions sont plus simples, alors que x86 est une architecture CISC, qui signifie Complex Instruction Set Computing, il a beaucoup plus d'instructions. Les instructions entre les deux environnement sont différentes.
 
-Comprendre le lien les attaques physiques / expliquez quelles sont les attaques par patching possibles sur une boucle for.
+Comprendre le lien les attaques physiques / expliquez quelles sont les attaques par patching possibles sur une boucle for?
+
 Une boucle for fait appel à des jumps qu’on pourrait utiliser pour modifier l’adresse de saut et orienter notre programme vers d’autres portions.
 
 Qu'elle défense est ce que je peux utiliser contre le patching?
+
 Bien que la technique de patching soit quasi-impossible à éviter, il est possible en premier temps de la rendre difficile en passant par un processus d’obfuscation rendant le désassemblage difficile (par exemple mettre plusieurs jumps “factices” pour désorienter l’attaquant). On peut également calculer un checksum du code et vérifier si le hash a été
 modifié ce qui pourrait indiquer des breakpoints ou une tentative de débogage. 
 

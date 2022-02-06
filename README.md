@@ -64,13 +64,13 @@ On retrouve le mot de pass en clair ainsi que les fonctions printf, strcmp, et i
 Disassembling the Program
 -------------- 
 
-Ce processus est appelé "désassemblage" au lieu de "décompilation" car nous ne pouvons pas récupérer le code source d'origine ; à la place, nous pouvons récupérer les noms des instructions encodées en code machine.
+Le processus de désassemblage nous ne permet pas récupérer le code source d'origine mais nous permet de récupérer les noms des instructions encodées en code machine.
 
-exécutant objdump -S -l -C -F -t -w program | less pour obtenir le démontage:
+exécutant objdump -S -l -C -F -t -w program | less pour obtenir le désaassemblage du binaire:
 
 ![image](https://user-images.githubusercontent.com/46088690/152651876-9c5fbe2a-0355-4602-986c-6422dd66ca8f.png)
 
-La colonne la plus à gauche contient les offsets. La colonne suivante est les instructions binaires elles-mêmes en hexadécimal. Après cela sont les noms et les paramètres de chaque instruction.
+Sur la gauche, nous avons les adresses mémoires auxquelles sont placés les codes binaires. Ensuite nous avons leur valeur et, enfin, sur la droite, nous avons du langage d’assemblage représentant les noms et les paramètres de chaque instruction.
 
 En analysant les différentes instructions, on déduit que l'exécutable binaire a une fonction appelée is_valid, et cette fonction appelle strcmp avec certaines valeurs et renvoie un 1 ou un 0 en fonction de sa valeur de retour. 
 

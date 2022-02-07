@@ -25,17 +25,23 @@ En attachant gdb à l'exécutable, on essaye une entrée avec beaucoup d'AAAAA..
  Maintenant que nous avons trouvé le buffer overflow nous devons trouver l'offset où nous contrôlerons le pointeur de retour sur la pile. 
  
 On vérifie certaines protections comme NX en utilisant checksec:
+
  ![image](https://user-images.githubusercontent.com/46088690/152689953-ccbdbf46-28de-43a3-9487-8b83b3b3a261.png)
 
 On trouve que le binaire est lié statiquement et n'a pas de bibliothèques dynamiques:
+
 ![image](https://user-images.githubusercontent.com/46088690/152691216-7f37266a-5d13-4504-8fb6-f1428f49dfc9.png)
 
 Création de la ROP chaine:
+
 ![image](https://user-images.githubusercontent.com/46088690/152788788-e5a94185-b740-4f87-98eb-aed6ea1d5793.png)
 
+Le résultat étant un code python, on copie la ROP chain:
 ![image](https://user-images.githubusercontent.com/46088690/152793535-1a1638ec-eb79-4ad6-ae92-72af3fb0e39b.png)
 
 On ajoute le padding et on met le tout dans un fichier:
 ![image](https://user-images.githubusercontent.com/46088690/152794213-10f7120f-23e1-4f19-9ae5-c5a699a353be.png)
+
+
 
 

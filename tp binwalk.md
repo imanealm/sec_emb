@@ -19,3 +19,5 @@ Extraction des fichiers et analyse récursive:
 ![image](https://user-images.githubusercontent.com/46088690/152819546-2c4e8ed5-fcde-4147-bda9-3542a91b894e.png)
 
 ![image](https://user-images.githubusercontent.com/46088690/152820741-590371e6-b6fd-409f-a059-232f34de8423.png)
+
+On trouve donc l'image tux.png

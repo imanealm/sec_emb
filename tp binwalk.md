@@ -12,6 +12,8 @@ Lancement de la démo:
 Chercher l'image tux:
 Charge les règles d'extraction communes --dd à partir d'un fichier prédéfini et les règles spécifiques à l'utilisateur, l'option -M analysera de manière récursive les fichiers extraits lors d'une analyse --signature.
 
+Extraction des fichiers et analyse récursive:
+
 ![image](https://user-images.githubusercontent.com/46088690/152816650-4acf34ae-0d6c-4423-b57f-92a7bcf4bb56.png)
 
 ![image](https://user-images.githubusercontent.com/46088690/152819546-2c4e8ed5-fcde-4147-bda9-3542a91b894e.png)

@@ -3,13 +3,17 @@ Setup
 --------------
 Vérification que notre image docker a été construite:
 
-![image](https://user-images.githubusercontent.com/46088690/152688056-48ed8559-32eb-4688-884b-06e2fe2149f6.png)
+![image](https://user-images.githubusercontent.com/46088690/152787131-6bf922dd-cf66-44ab-a2bf-e5938bd3dd4d.png)
+
 
 Démarrage du conteneur:
 
 ![image](https://user-images.githubusercontent.com/46088690/152688227-094bad93-73a9-4c46-bf4f-f013ba67d7db.png)
 
 ![image](https://user-images.githubusercontent.com/46088690/152688350-ac3cff3f-d2ac-49d2-919c-90f38921ab08.png)
+
+![image](https://user-images.githubusercontent.com/46088690/152787390-64a23f54-9934-48d9-8076-6388f03a0cb7.png)
+
 
 The Speedrun
 --------------

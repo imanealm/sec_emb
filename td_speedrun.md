@@ -16,16 +16,15 @@ The Speedrun
 --------------
 
 Nous recevons le message.
-![image](https://user-images.githubusercontent.com/46088690/152688868-4240f7f9-c2da-46e2-8d94-8ebd1378c2e5.png)
+![image](https://user-images.githubusercontent.com/46088690/152787779-a7a14521-800e-4bf1-9fa7-0d7e5448cb39.png)
 
 En attachant gdb à l'exécutable, on essaye une entrée avec beaucoup d'AAAAA..., on trouve qu'il y a un défaut de segmentation, il s'agit d'un buffer overflow.
 
 ![image](https://user-images.githubusercontent.com/46088690/152689506-fe04445f-715f-4ebd-9d76-cb255170eea3.png)
-![image](https://user-images.githubusercontent.com/46088690/152689417-d1727c8a-5061-416a-9ff8-e7b251f53dc9.png)
- 
+![image](https://user-images.githubusercontent.com/46088690/152788452-9ea1d5bb-54bf-46a9-aa41-f7d690300e5d.png) 
  Maintenant que nous avons trouvé le buffer overflow nous devons trouver l'offset où nous contrôlerons le pointeur de retour sur la pile. 
  
-On vérifi certaines protections comme NX en utilisant checksec:
+On vérifie certaines protections comme NX en utilisant checksec:
  ![image](https://user-images.githubusercontent.com/46088690/152689953-ccbdbf46-28de-43a3-9487-8b83b3b3a261.png)
 
 On trouve que le binaire est lié statiquement et n'a pas de bibliothèques dynamiques:

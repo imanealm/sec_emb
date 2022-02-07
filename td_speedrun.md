@@ -30,6 +30,12 @@ On vérifie certaines protections comme NX en utilisant checksec:
 On trouve que le binaire est lié statiquement et n'a pas de bibliothèques dynamiques:
 ![image](https://user-images.githubusercontent.com/46088690/152691216-7f37266a-5d13-4504-8fb6-f1428f49dfc9.png)
 
-On a donc besoin d'une ROP chaine,
+Création de la ROP chaine:
 ![image](https://user-images.githubusercontent.com/46088690/152788788-e5a94185-b740-4f87-98eb-aed6ea1d5793.png)
+
+![image](https://user-images.githubusercontent.com/46088690/152793535-1a1638ec-eb79-4ad6-ae92-72af3fb0e39b.png)
+
+On ajoute le padding et on met le tout dans un fichier:
+![image](https://user-images.githubusercontent.com/46088690/152794213-10f7120f-23e1-4f19-9ae5-c5a699a353be.png)
+
 

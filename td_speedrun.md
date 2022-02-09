@@ -27,8 +27,10 @@ En attachant gdb à l'exécutable, on essaye une entrée avec beaucoup d'AAAAA..
 On vérifie certaines protections comme NX en utilisant checksec:
 
  ![image](https://user-images.githubusercontent.com/46088690/152689953-ccbdbf46-28de-43a3-9487-8b83b3b3a261.png)
+ 
+ On peut voir qu'il s'agit d'un binaire 64 bits avec NX, mais n'a pas de PIE ni de Stack Canary. En plus de cela, nous pouvons voir qu'il est lié statiquement (il y a donc beaucoup de gadgets ROP, et comme il n'y a pas de PIE, nous connaissons les adresses de chacun d'eux). On peut aussi voir qu'il y a un débordement de buffer.
 
-On trouve que le binaire est lié statiquement et n'a pas de bibliothèques dynamiques:
+On trouve également que le binaire est lié statiquement et n'a pas de bibliothèques dynamiques:
 
 ![image](https://user-images.githubusercontent.com/46088690/152691216-7f37266a-5d13-4504-8fb6-f1428f49dfc9.png)
 
@@ -41,6 +43,12 @@ Le résultat étant un code python, on copie la ROP chain:
 
 On ajoute le padding et on met le tout dans un fichier:
 ![image](https://user-images.githubusercontent.com/46088690/152794213-10f7120f-23e1-4f19-9ae5-c5a699a353be.png)
+
+On réussit donc à ouvrir un shell command:
+
+![image](https://user-images.githubusercontent.com/46088690/153298255-1e21eadc-316e-4caf-b06c-de1b80c3601c.png)
+
+Après la lecture et l'envoie de l'exploit, le débordement de tampon se produit et la chaîne ROP finit par nous procurer le shell. Ensuite, le cat suivant sans arguments lit l'entrée que nous tapons et l'envoie à la sortie.
 
 
 

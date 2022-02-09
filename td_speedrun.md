@@ -15,7 +15,8 @@ Démarrage du conteneur:
 The Speedrun
 --------------
 
-Nous recevons le message.
+Nous recevons le message suivant :
+
 ![image](https://user-images.githubusercontent.com/46088690/152787779-a7a14521-800e-4bf1-9fa7-0d7e5448cb39.png)
 
 En attachant gdb à l'exécutable, on essaye une entrée avec beaucoup d'AAAAA..., on trouve qu'il y a un défaut de segmentation, il s'agit d'un buffer overflow.
@@ -41,13 +42,15 @@ Nous avons donc un débordement de buffer. Trouvons le décalage depuis le débu
 Maintenant nous savons comment écrire sur l'adresse de retour et puisqu'il s'agit d'un binaire lié statiquement sans PIE, nous pouvons simplement opter pour une chaîne ROP facilement.
 Création de la ROP chaine:
 
-![image](https://user-images.githubusercontent.com/46088690/152788788-e5a94185-b740-4f87-98eb-aed6ea1d5793.png)
+![image](https://user-images.githubusercontent.com/46088690/153300477-7d1ff757-d858-440e-a5a5-e022ad804cd1.png)
 
 Le résultat étant un code python, on copie la ROP chain:
-![image](https://user-images.githubusercontent.com/46088690/152793535-1a1638ec-eb79-4ad6-ae92-72af3fb0e39b.png)
+
+![image](https://user-images.githubusercontent.com/46088690/153300760-9d790ae4-048e-4285-883f-92b67f163737.png)
 
 On ajoute le padding et on met le tout dans un fichier:
-![image](https://user-images.githubusercontent.com/46088690/152794213-10f7120f-23e1-4f19-9ae5-c5a699a353be.png)
+
+![image](https://user-images.githubusercontent.com/46088690/153300315-41e42c9f-aa7b-4649-94aa-6f02fd84aead.png)
 
 On réussit donc à ouvrir un shell command:
 

@@ -58,6 +58,17 @@ On réussit donc à ouvrir un shell command:
 
 Après la lecture et l'envoie de l'exploit, le débordement de tampon se produit et la chaîne ROP finit par nous procurer le shell. Ensuite, le cat suivant sans arguments lit l'entrée que nous tapons et l'envoie à la sortie.
 
+Questions:
+--------------
+Devenez root. Qu'est ce qu'un attaquant peut faire une fois root?
 
+En tant que root l'attaquant aura des privilèges lui permettant d'accéder à des données confidentielles, il pourra naviguer dans l'arborescence, analyser les droits, télécharger des fichiers, en déposer, déployer des logiciels malveillants et executer des commandes.
+
+Qu'est ce que je dois prendre en compte dans mon modèle d'attaque?
+
+
+Comprendre le lien avec les bugs / cette méthode est-elle applicable dans le cas d'un use after free? Pourquoi?
+Qu'est ce que je peux faire pour diminuer / contrer les bugs?
+Bonus: Quelle différence si les canary et l'ASLR sont présents?
 
 

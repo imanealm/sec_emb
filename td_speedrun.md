@@ -69,6 +69,8 @@ Qu'est ce que je dois prendre en compte dans mon modèle d'attaque?
 
 Comprendre le lien avec les bugs / cette méthode est-elle applicable dans le cas d'un use after free? Pourquoi?
 Qu'est ce que je peux faire pour diminuer / contrer les bugs?
+
 Bonus: Quelle différence si les canary et l'ASLR sont présents?
+ASLR est une protection dans le noyau qui rendra certains espaces d'adressage aléatoires. Généralement, la pile, le tas et les bibliothèques sont impactés. Il n'est alors plus possible de trouver l'adresse d'un shellcode placé sur la pile, ni l'adresse de la systemfonction dans la libc.
 
 

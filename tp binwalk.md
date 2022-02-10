@@ -32,14 +32,13 @@ Le fichier étant chiffré on ne peut pas le modifier directement.
 
 Qu'est ce que je peux faire pour contourner cette protection?
 
-Déchiffrer le fichier
+N'ayant pas de clé de chiffrement on ne peut pas déchiffrer le fichier mais on pourra le convertir en hexadécimale et accéder au code de l'image pour le modifier.
 
 Quelle propriété de sécurité est garantie?
 
+La confidentialité et la signature du fichier.
 
 Bonus: Quelle propriété de sécurité n'est pas garantie? Que peut on faire pour obtenir cette garantie?
 
-La confidentialité car on a accès à des images de systèmes qui devaient être secret. On peut le résoudre en modifiant la politique de sécurité du système lui disant de ne pas donner accès aux fichiers du système.
-
-L’intégrité car des limites ont été défini pour éviter la modification du système par n’importe qui.
+L’intégrité et on peut l'avoir en définissant en contrôlant les permissions et les droits d’accès et de modification au fichier.
 

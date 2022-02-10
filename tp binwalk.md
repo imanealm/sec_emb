@@ -22,9 +22,11 @@ Extraction des fichiers et analyse récursive:
 
 On trouve donc l'image tux.png
 
-Trouvez et modifiez le pingouin. Qu'est ce qui empêche de modifier le pingouin directement?
+![image](https://user-images.githubusercontent.com/46088690/153487994-7b7dc09c-e060-402e-9b94-bd96ad4b228d.png)
 
 ![image](https://user-images.githubusercontent.com/46088690/153476570-8d649425-85f1-45f7-9b05-1b3e1796c3ce.png)
+
+Qu'est ce qui empêche de modifier le pingouin directement?
 
 Le fichier étant chiffré on ne peut pas le modifier directement.
 

@@ -21,3 +21,19 @@ Extraction des fichiers et analyse récursive:
 ![image](https://user-images.githubusercontent.com/46088690/152820741-590371e6-b6fd-409f-a059-232f34de8423.png)
 
 On trouve donc l'image tux.png
+
+Trouvez et modifiez le pingouin. Qu'est ce qui empêche de modifier le pingouin directement?
+
+On n’a pas le droit de modifier le fichier.
+
+Qu'est ce que je peux faire pour contourner cette protection?
+
+Modifier la politique de sécurité de ce système avec AppArmor sur Ubuntu et Debian et Selinux sur Fedora ou Centos.
+
+Quelle propriété de sécurité est garantie?
+
+L’intégrité car des limites ont été défini pour éviter la modification du système par n’importe qui.
+
+Bonus: Quelle propriété de sécurité n'est pas garantie? Que peut on faire pour obtenir cette garantie?
+
+La confidentialité car on a accès à des images de systèmes qui devaient être secret. On peut le résoudre en modifiant la politique de sécurité du système lui disant de ne pas donner accès aux fichiers du système.

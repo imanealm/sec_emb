@@ -66,11 +66,18 @@ En tant que root l'attaquant aura des privilèges lui permettant d'accéder à d
 
 Qu'est ce que je dois prendre en compte dans mon modèle d'attaque?
 
+Ce qu'il faut prendre en compte c'est la taille du buffer, et également le mode d'allocation de mémoire utiliser soit le stack overflow qui est rapide et fonctionne comme une pile et le heap overflow qui est moins rapide et désorganisé mais adapté quand la manipulation doit être gérée de façon explicite ou implique de gros morceaux de données.
 
 Comprendre le lien avec les bugs / cette méthode est-elle applicable dans le cas d'un use after free? Pourquoi?
+
+Les vulnérabilités use after free exploitent des pointeurs qui référencent un endroit de la mémoire qui ne contient plus l'objet supposé être contenu dans cet espace. Si après avoir libéré un emplacement mémoire, un programme n'efface pas le pointeur vers cette mémoire, un attaquant peut utiliser l'erreur pour pirater le programme.
+Pour les bogues "use-after-free", le processus d'exploitation est largement similaire à celui des exploits de débordement de tas. Avec une disposition de mémoire de tas appropriée, les objets vulnérables tombant dans l'un des trous de mémoire sont libérés et occupés par des données vectorielles contrôlées. 
+
 Qu'est ce que je peux faire pour diminuer / contrer les bugs?
 
-Bonus: Quelle différence si les canary et l'ASLR sont présents?
-ASLR est une protection dans le noyau qui rendra certains espaces d'adressage aléatoires. Généralement, la pile, le tas et les bibliothèques sont impactés. Il n'est alors plus possible de trouver l'adresse d'un shellcode placé sur la pile, ni l'adresse de la systemfonction dans la libc.
+Il faut adopter de bonnes pratiques telles que le recours général au bounds checking et éviter des fonctions employées dangereusement, comme strcpy en C, utiliser des outils qui permettent aux développeurs de détecter en amont ces problèmes comme Valgrind (Memcheck), ASan (Address Sanitizer), KASAN (KernelAdressSAnitizer pour Linux), utiliser des langages de haut niveau implémentant un garbage collector qui s'occupe de nettoyer la mémoire allouée qui n'est plus référencée, utiliser des canaries au niveau du compilateur, au niveau du système, utiliser la technique ASLR pour arranger aléatoirement la mémoire d'un programme de telle sorte à limiter la possibilité qu'un buffer overflow soit exploité. au niveau du hardware, utiliser MTE est l'acronyme de Memory Tagging Extension qui permet que chaque allocation de mémoire soit taguée, et son accès ne soit possible que par un pointeur avec le tag correspondant.
 
+Bonus: Quelle différence si les canary et l'ASLR sont présents?
+L'ASLR est une protection dans le noyau qui rendra certains espaces d'adressage aléatoires. Généralement, la pile, le tas et les bibliothèques sont impactés. Il n'est alors plus possible de trouver l'adresse d'un shellcode placé sur la pile, ni l'adresse de la systemfonction dans la libc.
+Les canary sont des morceaux de mémoire qui sont ajoutés de façon adjacente et dont la valeur peut être vérifiée, ce qui rend des overflow détectables du fait de la destruction de ces canaries le cas échéant.
 
